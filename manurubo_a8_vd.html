@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <!-- jQuery and JS bundle w/ Popper.js -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="manurubo_a8_vd.css">
+
+  </head>
+  <body>
+    <h1 class="text-center pt-5"><b>Visualización de Datos A8</b></h1>
+    <h2 class="text-center">La societat catalana davant del Covid-19. Sentiments, sortides de casa i preocupacions. <a href="https://analisi.transparenciacatalunya.cat/Societat-benestar/La-societat-catalana-davant-del-Covid-19-Percepcio/qxjr-krv6">Link</a><h2>
+    <hr class="pb-5">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="container-fluid col-sm-1">
+        </div>
+        <div class="container-fluid col-sm-5" >
+          <div class="jumbotron m-0 p-3 container-fluid col-sm-12">
+            <p class="pb-1 mb-1" >Durante el confinamiento cada persona tuvo diferentes sentimientos. Algunos sufrían de nervios o miedo por estar encerrados mientras que otros simplemente sentían incredulidad.</p>
+            <p>Los encuestados tenían que indicar una puntuación para cada sentimiento, en esta visualización <mark class="highlighted">se recoge el sentimiento con mayor puntuación en jerarquías de sexo, edad y provincia.</mark></p>
+          <hr>
+          <h2><b>Sentimiento principal por jerarquías</b></h2>
+          <p>El sunburst diagram muestra hasta dos niveles de las jerarquías o sentimientos por lo que si hay dos jerarquías agrupadas es necesario seleccionar una categoría de las jerarquías para ver los sentimientos. </p>
+          <iframe width="100%" height="800" frameborder="0"
+  src="https://observablehq.com/embed/@manurubo/sunburst-con-zoom?cells=viewof+jer1%2Cviewof+jer2%2Cchart"></iframe>
+          </div>
+        </div>
+        <div class="container-fluid col-sm-5">
+          <div class="jumbotron m-0 p-3 container-fluid col-sm-12">
+          <p class="pb-1 mb-1">A pesar del confinamiento, estaba permitido salir de casa por diversas razones, como ir a comprar, trabajar o al médico.
+          <p>Los encuestados indicaban si habían salido o no por cada razón. <mark class="highlighted">Es interesante conocer las razones mayoritarías y si hay personas que salen por varias razones.</mark></p>
+          <hr>
+          <h2><b>Razones de las salidas de casa y su relación</b></h2>
+          <p>El diagrama de cuerdas permite situarse encima de una cuerda y ver cuantas personas se relacionaban saliendo de casa para las dos razones de los extremos. </p>
+          <iframe width="100%" height="800" frameborder="0"
+  src="https://observablehq.com/embed/@manurubo/chord-diagram?cells=chart"></iframe>
+          </div>
+        </div>
+        <div class="container-fluid col-sm-1">
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="container-fluid col-sm-1">
+        </div>
+        <div class="jumbotron m-0 p-3 container-fluid col-sm-10">
+          <div class="row">
+            <div class="container-fluid col-sm-2">
+              <button type="button" id='boton' class="btn btn-primary .btn-sm">Economia</button>
+            </div>
+            <div class="container-fluid col-sm-10 ">
+              <p class="pb-1 mb-1">La población sufrió mucho en dos temas principales, la economia y la salud, tuvieron que indicar si estaban preocupados por estos temas en diferentes ámbitos.
+                <mark class="highlighted">Se visualiza la evolución de la preocupación a lo largo del tiempo para estudiar si hay relación con los casos de Covid-19 diarios.</mark></p>
+              <p>Se puede seleccionar si visualizar la preocupación por la salud o la economia con el botón de la izquierda. Se pueden filtrar que líneas visualizar mediante la leyenda y se puede ver el valor exacto del dato pasando por encima de los puntos.</p>
+            </div>
+          </div>
+          <div class="row p-2">
+            <div class="container-fluid col-sm-12">
+              <div class="flourish-embed flourish-chart" id="grafica_eco"  data-src="visualisation/6194291"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
+              <div class="flourish-embed flourish-chart" id="grafica_salud" data-src="visualisation/6195588"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
+            </div>
+            <p>Los datos de casos se obtienen de: <a href="https://analisi.transparenciacatalunya.cat/Salut/Dades-di-ries-de-COVID-19-per-comarca/c7sd-zy9j">Link</a></p>
+          </div>
+        </div>
+        <div class="container-fluid col-sm-1">
+        </div>
+      </div>
+
+    </div>
+    <script>
+          var grafica = 'Economia'
+          document.getElementById("grafica_eco").style.display = "block";
+          document.getElementById("grafica_salud").style.display = "none";
+          document.getElementById('boton').onclick = function() {
+             if (document.getElementById("boton").innerHTML == 'Economia'){
+               document.getElementById("boton").innerHTML = 'Salud';
+               document.getElementById("grafica_eco").style.display = "none";
+               document.getElementById("grafica_salud").style.display = "block";
+             }
+             else{
+               document.getElementById("boton").innerHTML = "Economia"
+               document.getElementById("grafica_eco").style.display = "block";
+               document.getElementById("grafica_salud").style.display = "none";
+             }
+           };
+    </script>
+
+
+  </body>
+
+
+</html>
